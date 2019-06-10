@@ -1,2 +1,18 @@
 <h1>Edit <%= @airline.name %></h1>
-<span>(Edit Form)</span>
+<span>
+    <%= form_with model: @airline do |form| %>
+        <div>
+            <%= form.label :New_Name %>
+            <%= form.text_field :name %>
+        </div>
+
+        <div>
+            <%= form.label :Check_Passangers %>
+            <%= form.collection_check_boxes :traveler_ids, @travelers, :id, :name %>
+        </div>
+
+        <div>
+            <%= form.submit %>
+        </div>
+    <% end %>
+</span>
